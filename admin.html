@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin</title>
+    <!-- Not indexed by search engines -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ==================== PASSWORD GATE ==================== -->
+<div id="gate" class="gate-overlay">
+    <div class="gate-card">
+        <div class="gate-logo">&#128274;</div>
+        <h1 class="gate-title">Admin Panel</h1>
+        <p class="gate-sub">John Almer's Portfolio</p>
+        <form id="gateForm" class="gate-form" novalidate>
+            <input
+                type="password"
+                id="gatePassword"
+                class="gate-input"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            />
+            <span class="gate-error" id="gateError"></span>
+            <button type="submit" class="gate-btn">Unlock</button>
+        </form>
+        <a href="index.html" class="gate-back">&#8592; Back to Portfolio</a>
+    </div>
+</div>
+
+<!-- ==================== ADMIN PANEL ==================== -->
+<div id="adminPanel" class="admin-panel hidden">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-logo">&#9998; Admin</span>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="sidebar-btn active" onclick="showView('list')">&#128196; Projects</button>
+            <button class="sidebar-btn" onclick="showView('add')">&#43; Add Project</button>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-btn danger" onclick="adminLogout()">&#8594; Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="admin-main">
+
+        <!-- Header -->
+        <header class="admin-header">
+            <h2 class="admin-header-title" id="viewTitle">All Projects</h2>
+            <div class="admin-header-actions">
+                <button class="adm-btn adm-btn-outline" onclick="exportData()">&#8595; Export JS</button>
+                <button class="adm-btn adm-btn-danger-outline" onclick="resetToDefault()">&#8635; Reset to Default</button>
+                <a href="projects.html" target="_blank" class="adm-btn adm-btn-primary">&#128065; Preview Site</a>
+            </div>
+        </header>
+
+        <!-- PROJECT LIST VIEW -->
+        <section id="listView" class="view">
+            <div id="projectList" class="project-list"></div>
+            <button class="adm-btn adm-btn-primary add-first-btn" onclick="showView('add')">
+                &#43; Add New Project
+            </button>
+        </section>
+
+        <!-- ADD / EDIT VIEW -->
+        <section id="addView" class="view hidden">
+            <form id="projectForm" class="project-form" novalidate>
+                <input type="hidden" id="editId" value="">
+
+                <div class="form-row">
+                    <div class="adm-form-group">
+                        <label for="fTitle">Project Title *</label>
+                        <input type="text" id="fTitle" placeholder="e.g. My Awesome App" required />
+                        <span class="adm-error" id="fTitleErr"></span>
+                    </div>
+                    <div class="adm-form-group">
+                        <label for="fDate">Date Completed *</label>
+                        <input type="text" id="fDate" placeholder="e.g. May 2025" required />
+                        <span class="adm-error" id="fDateErr"></span>
+                    </div>
+                </div>
+
+                <div class="adm-form-group">
+                    <label for="fDesc">Short Description * <small>(shown on card)</small></label>
+                    <textarea id="fDesc" rows="2" placeholder="One or two sentences about the project." required></textarea>
+                    <span class="adm-error" id="fDescErr"></span>
+                </div>
+
+                <div class="adm-form-group">
+                    <label for="fLongDesc">Long Description <small>(optional, replaces short on expanded card)</small></label>
+                    <textarea id="fLongDesc" rows="3" placeholder="More detail about features, your role, challenges solved…"></textarea>
+                </div>
+
+                <div class="adm-form-group">
+                    <label>Technologies *</label>
+                    <div class="tech-input-row">
+                        <input type="text" id="techInput" placeholder="e.g. Firebase" />
+                        <button type="button" class="adm-btn adm-btn-sm" onclick="addTech()">Add</button>
+                    </div>
+                    <div id="techTagsPreview" class="tags-preview"></div>
+                    <span class="adm-error" id="fTechErr"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="adm-form-group">
+                        <label for="fGithub">GitHub URL *</label>
+                        <input type="url" id="fGithub" placeholder="https://github.com/…" required />
+                        <span class="adm-error" id="fGithubErr"></span>
+                    </div>
+                    <div class="adm-form-group">
+                        <label for="fDemo">Demo / Live URL <small>(optional)</small></label>
+                        <input type="url" id="fDemo" placeholder="https://…" />
+                    </div>
+                </div>
+
+                <!-- Images -->
+                <div class="adm-form-group">
+                    <label>
+                        Project Images <small>(upload files to <code>assets/</code> folder first)</small>
+                    </label>
+                    <div id="imageRows" class="image-rows"></div>
+                    <button type="button" class="adm-btn adm-btn-sm adm-btn-outline" onclick="addImageRow()">
+                        &#43; Add Image
+                    </button>
+                </div>
+
+                <!-- Form actions -->
+                <div class="form-actions">
+                    <button type="submit" class="adm-btn adm-btn-primary" id="formSaveBtn">
+                        &#10003; Save Project
+                    </button>
+                    <button type="button" class="adm-btn adm-btn-outline" onclick="cancelEdit()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- EXPORT MODAL -->
+        <div id="exportModal" class="adm-modal hidden">
+            <div class="adm-modal-box">
+                <div class="adm-modal-header">
+                    <h3>Export projects-data.js</h3>
+                    <button class="adm-modal-close" onclick="closeExport()">&#10005;</button>
+                </div>
+                <p class="adm-modal-desc">
+                    Copy the code below and replace the contents of
+                    <code>js/projects-data.js</code>, then push to GitHub.
+                    This makes your changes permanent for all visitors.
+                </p>
+                <textarea id="exportCode" class="export-code" readonly></textarea>
+                <div class="adm-modal-actions">
+                    <button class="adm-btn adm-btn-primary" onclick="copyExport()">&#128203; Copy Code</button>
+                    <button class="adm-btn adm-btn-outline" onclick="closeExport()">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="js/projects-data.js"></script>
+<script>
+/* ============================================================
+   ADMIN CONFIGURATION
+   Change ADMIN_PASSWORD to something only you know.
+   ============================================================ */
+const ADMIN_PASSWORD = 'portfolio2025';
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let projects = [];
+let currentTechs = [];
+let editingId   = null;
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+document.getElementById('gateForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const val = document.getElementById('gatePassword').value;
+    if (val === ADMIN_PASSWORD) {
+        document.getElementById('gate').classList.add('hidden');
+        document.getElementById('adminPanel').classList.remove('hidden');
+        loadProjects();
+        renderList();
+    } else {
+        const err = document.getElementById('gateError');
+        err.textContent = 'Incorrect password. Try again.';
+        document.getElementById('gatePassword').value = '';
+        document.getElementById('gatePassword').focus();
+        setTimeout(() => { err.textContent = ''; }, 3000);
+    }
+});
+
+function adminLogout() {
+    document.getElementById('adminPanel').classList.add('hidden');
+    document.getElementById('gate').classList.remove('hidden');
+    document.getElementById('gatePassword').value = '';
+}
+
+/* ============================================================
+   DATA HELPERS
+   ============================================================ */
+function loadProjects() {
+    const defaults = (typeof projectsData !== 'undefined')
+        ? JSON.parse(JSON.stringify(projectsData))
+        : [];
+
+    const stored = localStorage.getItem('portfolioProjects');
+    if (!stored) { projects = defaults; return; }
+
+    try {
+        const adminList = JSON.parse(stored);
+        // Merge: keep defaults as base, append any extra IDs from localStorage
+        const defaultIds = new Set(defaults.map(p => p.id));
+        const extras = adminList.filter(p => !defaultIds.has(p.id));
+        projects = [...defaults, ...extras];
+    } catch {
+        projects = defaults;
+    }
+}
+
+function saveProjects() {
+    localStorage.setItem('portfolioProjects', JSON.stringify(projects));
+}
+
+function nextId() {
+    return projects.length ? Math.max(...projects.map(p => p.id || 0)) + 1 : 1;
+}
+
+/* ============================================================
+   VIEWS
+   ============================================================ */
+function showView(name) {
+    document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+
+    if (name === 'list') {
+        document.getElementById('listView').classList.remove('hidden');
+        document.getElementById('viewTitle').textContent = 'All Projects';
+        document.querySelectorAll('.sidebar-btn')[0].classList.add('active');
+        renderList();
+    } else {
+        document.getElementById('addView').classList.remove('hidden');
+        document.getElementById('viewTitle').textContent = editingId ? 'Edit Project' : 'Add Project';
+        document.querySelectorAll('.sidebar-btn')[1].classList.add('active');
+    }
+}
+
+/* ============================================================
+   PROJECT LIST
+   ============================================================ */
+function renderList() {
+    const container = document.getElementById('projectList');
+    if (!projects.length) {
+        container.innerHTML = '<p class="list-empty">No projects yet. Click "Add Project" to get started.</p>';
+        return;
+    }
+    container.innerHTML = projects.map((p, i) => `
+      <div class="list-card">
+        <div class="list-card-info">
+          <span class="list-num">${String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3 class="list-title">${p.title}</h3>
+            <span class="list-meta">${p.date || ''} &bull; ${(p.tech || []).join(', ')}</span>
+          </div>
+        </div>
+        <div class="list-card-actions">
+          <button class="adm-btn adm-btn-sm adm-btn-outline" onclick="editProject(${p.id})">&#9998; Edit</button>
+          <button class="adm-btn adm-btn-sm adm-btn-danger" onclick="deleteProject(${p.id})">&#128465; Delete</button>
+        </div>
+      </div>
+    `).join('');
+}
+
+/* ============================================================
+   ADD / EDIT
+   ============================================================ */
+function openAddForm() {
+    editingId = null;
+    currentTechs = [];
+    document.getElementById('editId').value = '';
+    document.getElementById('projectForm').reset();
+    document.getElementById('techTagsPreview').innerHTML = '';
+    document.getElementById('imageRows').innerHTML = '';
+    document.getElementById('formSaveBtn').textContent = '✓ Save Project';
+    showView('add');
+}
+
+function editProject(id) {
+    const p = projects.find(x => x.id === id);
+    if (!p) return;
+
+    editingId = id;
+    currentTechs = [...(p.tech || [])];
+
+    document.getElementById('editId').value = id;
+    document.getElementById('fTitle').value = p.title || '';
+    document.getElementById('fDate').value = p.date || '';
+    document.getElementById('fDesc').value = p.description || '';
+    document.getElementById('fLongDesc').value = p.longDescription || '';
+    document.getElementById('fGithub').value = p.github || '';
+    document.getElementById('fDemo').value = p.demo || '';
+    document.getElementById('formSaveBtn').textContent = '✓ Update Project';
+
+    renderTechTags();
+
+    // Load image rows
+    const rows = document.getElementById('imageRows');
+    rows.innerHTML = '';
+    (p.images || []).forEach(img => addImageRow(img.src, img.caption));
+
+    showView('add');
+}
+
+function cancelEdit() {
+    editingId = null;
+    currentTechs = [];
+    showView('list');
+}
+
+function deleteProject(id) {
+    if (!confirm('Delete this project? This cannot be undone.')) return;
+    projects = projects.filter(p => p.id !== id);
+    saveProjects();
+    renderList();
+}
+
+/* ============================================================
+   FORM — TECH TAGS
+   ============================================================ */
+document.getElementById('techInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); addTech(); }
+});
+
+function addTech() {
+    const input = document.getElementById('techInput');
+    const val = input.value.trim();
+    if (!val || currentTechs.includes(val)) { input.value = ''; return; }
+    currentTechs.push(val);
+    input.value = '';
+    renderTechTags();
+}
+
+function removeTech(name) {
+    currentTechs = currentTechs.filter(t => t !== name);
+    renderTechTags();
+}
+
+function renderTechTags() {
+    document.getElementById('techTagsPreview').innerHTML =
+        currentTechs.map(t => `
+          <span class="adm-tag">
+            ${t} <button type="button" onclick="removeTech('${t}')">&times;</button>
+          </span>`).join('');
+}
+
+/* ============================================================
+   FORM — IMAGES
+   ============================================================ */
+let imageRowCount = 0;
+
+function addImageRow(src = '', caption = '') {
+    const id = ++imageRowCount;
+    const div = document.createElement('div');
+    div.className = 'image-row';
+    div.id = `imgRow_${id}`;
+    div.innerHTML = `
+      <input type="text" placeholder="assets/filename.jpg" value="${src}" class="img-src-input" />
+      <input type="text" placeholder="Caption" value="${caption}" class="img-cap-input" />
+      <button type="button" class="adm-btn adm-btn-sm adm-btn-danger" onclick="removeImageRow(${id})">&#10005;</button>
+    `;
+    document.getElementById('imageRows').appendChild(div);
+}
+
+function removeImageRow(id) {
+    const el = document.getElementById(`imgRow_${id}`);
+    if (el) el.remove();
+}
+
+function collectImages() {
+    const rows = document.querySelectorAll('.image-row');
+    const imgs = [];
+    rows.forEach(row => {
+        const src = row.querySelector('.img-src-input').value.trim();
+        const cap = row.querySelector('.img-cap-input').value.trim();
+        if (src) imgs.push({ src, caption: cap || 'Image' });
+    });
+    return imgs;
+}
+
+/* ============================================================
+   FORM SUBMIT
+   ============================================================ */
+document.getElementById('projectForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validateProjectForm()) return;
+
+    const project = {
+        id:              editingId || nextId(),
+        title:           document.getElementById('fTitle').value.trim(),
+        date:            document.getElementById('fDate').value.trim(),
+        description:     document.getElementById('fDesc').value.trim(),
+        longDescription: document.getElementById('fLongDesc').value.trim(),
+        tech:            [...currentTechs],
+        github:          document.getElementById('fGithub').value.trim(),
+        demo:            document.getElementById('fDemo').value.trim() || null,
+        images:          collectImages()
+    };
+
+    if (editingId) {
+        const idx = projects.findIndex(p => p.id === editingId);
+        if (idx !== -1) projects[idx] = project;
+    } else {
+        projects.push(project);
+    }
+
+    saveProjects();
+    editingId = null;
+    currentTechs = [];
+    showView('list');
+
+    showToast(editingId ? 'Project updated!' : 'Project added!');
+});
+
+function validateProjectForm() {
+    let ok = true;
+    const checks = [
+        ['fTitle',  'fTitleErr',  'Title is required.'],
+        ['fDate',   'fDateErr',   'Date is required.'],
+        ['fDesc',   'fDescErr',   'Description is required.'],
+        ['fGithub', 'fGithubErr', 'GitHub URL is required.']
+    ];
+    checks.forEach(([fid, eid, msg]) => {
+        const el = document.getElementById(fid);
+        const err = document.getElementById(eid);
+        if (!el.value.trim()) {
+            err.textContent = msg; ok = false;
+        } else { err.textContent = ''; }
+    });
+    const techErr = document.getElementById('fTechErr');
+    if (!currentTechs.length) {
+        techErr.textContent = 'Add at least one technology.'; ok = false;
+    } else { techErr.textContent = ''; }
+    return ok;
+}
+
+/* ============================================================
+   EXPORT
+   ============================================================ */
+function exportData() {
+    const code = [
+        '/* =============================================',
+        '   PROJECTS DATA — your single source of truth.',
+        '   To add a project permanently: copy an entry,',
+        '   fill in the values, save, and push to GitHub.',
+        '',
+        '   NOTE: REPLACE the ENTIRE contents of this file',
+        '   with the code below — do not paste at the bottom.',
+        '   ============================================= */',
+        '',
+        `const projectsData = ${JSON.stringify(projects, null, 2)};`,
+        ''
+    ].join('\n');
+    document.getElementById('exportCode').value = code;
+    document.getElementById('exportModal').classList.remove('hidden');
+}
+
+function closeExport() {
+    document.getElementById('exportModal').classList.add('hidden');
+}
+
+function copyExport() {
+    const ta = document.getElementById('exportCode');
+    ta.select();
+    document.execCommand('copy');
+    showToast('Copied to clipboard!');
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+function resetToDefault() {
+    if (!confirm('Reset to default data from projects-data.js?\nAll admin changes saved in this browser will be lost.')) return;
+    localStorage.removeItem('portfolioProjects');
+    loadProjects();
+    renderList();
+    showView('list');
+    showToast('Reset to default data.');
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.className = 'adm-toast';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.classList.add('show'), 10);
+    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2800);
+}
+
+/* Init */
+document.getElementById('gatePassword').focus();
+</script>
+</body>
+</html>

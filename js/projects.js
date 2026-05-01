@@ -1,8 +1,11 @@
+/* Image modal — event delegation works for dynamically rendered thumbnails */
+
 document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('imageModal');
+    const modal    = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImg');
     const closeBtn = document.getElementById('closeModal');
-    const thumbnails = document.querySelectorAll('.carousel-thumb');
+    if (!modal) return;
+
     let lastFocused = null;
 
     function openModal(src, alt) {
@@ -22,39 +25,28 @@ document.addEventListener('DOMContentLoaded', function () {
         if (lastFocused) lastFocused.focus();
     }
 
-    thumbnails.forEach(thumb => {
-        thumb.setAttribute('tabindex', '0'); // Ensure thumbnails are focusable
-        thumb.addEventListener('click', () => openModal(thumb.src, thumb.alt));
-        thumb.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openModal(thumb.src, thumb.alt);
-            }
-        });
+    /* Delegate clicks — catches thumbnails added after page load */
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('carousel-thumb')) {
+            openModal(e.target.src, e.target.alt);
+            return;
+        }
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.target.classList.contains('carousel-thumb') &&
+            (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            openModal(e.target.src, e.target.alt);
+        }
+        if (modal.classList.contains('active') && (e.key === 'Escape' || e.key === 'Esc')) {
+            closeModal();
+        }
     });
 
     closeBtn.addEventListener('click', closeModal);
     closeBtn.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            closeModal();
-        }
-    });
-
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', function (e) {
-        if (modal.classList.contains('active') && (e.key === 'Escape' || e.key === 'Esc')) {
-            closeModal();
-        }
-        // Trap focus inside modal when open
-        if (modal.classList.contains('active') && e.key === 'Tab') {
-            if (document.activeElement === closeBtn && !e.shiftKey) {
-                e.preventDefault();
-                closeBtn.focus();
-            }
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); closeModal(); }
     });
 });

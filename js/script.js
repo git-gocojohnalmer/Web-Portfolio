@@ -149,6 +149,47 @@ function initTechFilter() {
 }
 
 /* =============================================
+   BACK TO TOP
+   ============================================= */
+
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 320);
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+/* =============================================
+   PAGE TRANSITIONS
+   ============================================= */
+
+function initPageTransitions() {
+    document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (
+            !href ||
+            href.startsWith('#') ||
+            href.startsWith('http') ||
+            href.startsWith('mailto') ||
+            href.startsWith('tel') ||
+            link.hasAttribute('target')
+        ) return;
+
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.add('page-exit');
+            setTimeout(() => { window.location.href = href; }, 270);
+        });
+    });
+}
+
+/* =============================================
    NAV SCROLL SHADOW
    ============================================= */
 
@@ -178,4 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initTechFilter();
     initNavShadow();
+    initBackToTop();
+    initPageTransitions();
 });

@@ -3,19 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Almer Goco | Projects</title>
-    <meta name="description" content="Projects built by John Almer Goco — including SDCanteen and this portfolio website.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Projects — John Almer Goco">
-    <meta property="og:description" content="Mobile apps, web projects, and backend systems built by John Almer Goco.">
-    <meta property="og:image" content="assets/projectpic.jpg">
+    <title>John Almer Goco | Page Not Found</title>
+    <meta name="description" content="Page not found — John Almer Goco's portfolio.">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <style>
+        #not-found {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.25rem;
+            padding: 2rem;
+        }
+        .not-found-code {
+            font-size: clamp(5rem, 20vw, 9rem);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(to right, var(--color-text-light), var(--color-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .not-found-msg {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+        }
+        .not-found-sub {
+            color: var(--color-text-muted) !important;
+            max-width: 360px;
+            font-size: 0.95rem;
+        }
+        .not-found-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 <body>
+    <div id="particle-js"></div>
     <div class="main-content">
 
         <nav id="desktop-nav">
@@ -45,20 +79,16 @@
             </div>
         </nav>
 
-        <section class="projects__section" id="projects">
-            <p class="section__text__p1">What I've Built</p>
-            <h1 class="title">Projects</h1>
-            <!-- Cards injected here by projects-render.js -->
-            <div id="projects-grid" class="projects-grid"></div>
+        <section id="not-found">
+            <p class="not-found-code">404</p>
+            <p class="not-found-msg">Page Not Found</p>
+            <p class="not-found-sub">Looks like this page doesn't exist or was moved.</p>
+            <div class="not-found-actions">
+                <a href="index.html" class="btn btn-color-1">Go Home</a>
+                <a href="projects.html" class="btn btn-color-2">View Projects</a>
+            </div>
         </section>
 
-    </div>
-
-    <div class="image-modal" id="imageModal" aria-modal="true" role="dialog" tabindex="-1">
-        <span class="close-modal" id="closeModal" aria-label="Close image" tabindex="0">&times;</span>
-        <div class="modal-content" id="modalContent">
-            <img id="modalImg" src="" alt="" />
-        </div>
     </div>
 
     <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8679;</button>
@@ -90,9 +120,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particles.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/projects-data.js"></script>
-    <script src="js/projects-render.js"></script>
-    <script src="js/projects.js"></script>
 </body>
 </html>

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Almer Goco | Contact</title>
+    <meta name="description" content="Get in touch with John Almer Goco — open to internship opportunities, collaborations, and project discussions.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact — John Almer Goco">
+    <meta property="og:description" content="Send a message, connect on LinkedIn, or reach out on GitHub.">
+    <meta property="og:image" content="assets/profilepic.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
@@ -26,7 +32,7 @@
         <nav id="hamburger-nav">
             <div class="logo">John Almer</div>
             <div class="hamburger-menu">
-                <div class="hamburger-icon" onclick="toggleMenu()">
+                <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -47,17 +53,16 @@
 
             <div class="contact-wrapper">
 
-                <!-- Left: Info panel -->
                 <div class="contact-info-panel">
                     <h2 class="contact-panel-title">Say Hello!</h2>
                     <p class="contact-panel-desc">I'm currently open to internship opportunities, collaborations, and project discussions. Whether you have a question or just want to connect — my inbox is always open.</p>
 
                     <div class="contact-links">
-                        <a href="mailto:gocojohnalmer@gmail.com" class="contact-link-item">
+                        <a href="mailto:almergoco@gmail.com" class="contact-link-item">
                             <div class="contact-link-icon">&#9993;</div>
                             <div>
                                 <span class="contact-link-label">Email</span>
-                                <span class="contact-link-value">gocojohnalmer@gmail.com</span>
+                                <span class="contact-link-value">almergoco@gmail.com</span>
                             </div>
                         </a>
                         <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener" class="contact-link-item">
@@ -79,7 +84,6 @@
                     <p class="contact-response-note">&#9200; Typically responds within 24 hours</p>
                 </div>
 
-                <!-- Right: Form -->
                 <div class="contact-form-panel">
                     <form id="contactForm" class="contact-form" novalidate>
 
@@ -117,7 +121,6 @@
 
                     </form>
 
-                    <!-- Success state -->
                     <div class="form-success" id="formSuccess">
                         <div class="success-icon">&#10003;</div>
                         <h3>Message Sent!</h3>
@@ -130,6 +133,36 @@
         </section>
 
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8679;</button>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">John Almer</span>
+                <p>Aspiring IT Professional</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <img src="assets/Linkedin-Icon.png" alt="LinkedIn" loading="lazy" />
+                </a>
+                <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/github-logo.png" alt="GitHub" loading="lazy" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 John Almer Goco. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
 </body>

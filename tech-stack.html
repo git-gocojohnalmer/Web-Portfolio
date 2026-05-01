@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Almer Goco | Tech Stack</title>
+    <meta name="description" content="Explore the technologies John Almer Goco works with — JavaScript, Node.js, Flutter, Firebase, MongoDB, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tech Stack — John Almer Goco">
+    <meta property="og:description" content="Programming languages, web frameworks, databases, and developer tools in my arsenal.">
+    <meta property="og:image" content="assets/profilepic.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
@@ -26,7 +32,7 @@
         <nav id="hamburger-nav">
             <div class="logo">John Almer</div>
             <div class="hamburger-menu">
-                <div class="hamburger-icon" onclick="toggleMenu()">
+                <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -45,7 +51,6 @@
             <p class="section__text__p1">Explore My</p>
             <h1 class="title">Tech Stack</h1>
 
-            <!-- Filter buttons -->
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="language">Languages</button>
@@ -55,30 +60,29 @@
 
             <div class="tech-stack-details-container">
 
-                <!-- Programming Languages -->
                 <div class="details-container" data-category="language">
                     <h2 class="section-subtitle">Programming Languages</h2>
                     <div class="article-container">
                         <article>
-                            <img src="./assets/java.png" alt="Java icon" class="icon" />
+                            <img src="./assets/java.png" alt="Java" class="icon" loading="lazy" />
                             <h3>Java</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/c-1.svg" alt="C icon" class="icon" />
+                            <img src="./assets/c-1.svg" alt="C" class="icon" loading="lazy" />
                             <h3>C</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/cpp.svg" alt="C++ icon" class="icon" />
+                            <img src="./assets/cpp.svg" alt="C++" class="icon" loading="lazy" />
                             <h3>C++</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:25%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/java-script.png" alt="JavaScript icon" class="icon" />
+                            <img src="./assets/java-script.png" alt="JavaScript" class="icon" loading="lazy" />
                             <h3>JavaScript</h3>
                             <p>Intermediate</p>
                             <div class="skill-level"><div class="skill-progress" style="width:55%"></div></div>
@@ -86,48 +90,47 @@
                     </div>
                 </div>
 
-                <!-- Web Development -->
                 <div class="details-container" data-category="web">
                     <h2 class="section-subtitle">Web Development</h2>
                     <div class="article-container">
                         <article>
-                            <img src="./assets/html.png" alt="HTML icon" class="icon" />
+                            <img src="./assets/html.png" alt="HTML" class="icon" loading="lazy" />
                             <h3>HTML</h3>
                             <p>Intermediate</p>
                             <div class="skill-level"><div class="skill-progress" style="width:60%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/css-3 (1).png" alt="CSS icon" class="icon" />
+                            <img src="./assets/css-3 (1).png" alt="CSS" class="icon" loading="lazy" />
                             <h3>CSS</h3>
                             <p>Intermediate</p>
                             <div class="skill-level"><div class="skill-progress" style="width:55%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/flutter.png" alt="Flutter icon" class="icon" />
+                            <img src="./assets/flutter.png" alt="Flutter" class="icon" loading="lazy" />
                             <h3>Flutter</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/Dart.png" alt="Dart icon" class="icon" />
+                            <img src="./assets/Dart.png" alt="Dart" class="icon" loading="lazy" />
                             <h3>Dart</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/nodejs.png" alt="Node.js icon" class="icon" />
+                            <img src="./assets/nodejs.png" alt="Node.js" class="icon" loading="lazy" />
                             <h3>Node.js</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:40%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/expressjs.png" alt="Express.js icon" class="icon" />
+                            <img src="./assets/expressjs.png" alt="Express.js" class="icon" loading="lazy" />
                             <h3>Express.js</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/postman.png" alt="Postman icon" class="icon" />
+                            <img src="./assets/postman.png" alt="Postman" class="icon" loading="lazy" />
                             <h3>Postman</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:40%"></div></div>
@@ -135,48 +138,47 @@
                     </div>
                 </div>
 
-                <!-- Tools & Database -->
                 <div class="details-container" data-category="tools">
                     <h2 class="section-subtitle">Tools &amp; Database</h2>
                     <div class="article-container">
                         <article>
-                            <img src="./assets/git.svg" alt="Git icon" class="icon" />
+                            <img src="./assets/git.svg" alt="Git" class="icon" loading="lazy" />
                             <h3>Git</h3>
                             <p>Intermediate</p>
                             <div class="skill-level"><div class="skill-progress" style="width:50%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/github.svg" alt="GitHub icon" class="icon" />
+                            <img src="./assets/github.svg" alt="GitHub" class="icon" loading="lazy" />
                             <h3>GitHub</h3>
                             <p>Intermediate</p>
                             <div class="skill-level"><div class="skill-progress" style="width:55%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/oracle.svg" alt="Oracle SQL icon" class="icon" />
+                            <img src="./assets/oracle.svg" alt="Oracle SQL" class="icon" loading="lazy" />
                             <h3>Oracle SQL</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/apex.svg" alt="Oracle Apex icon" class="icon" />
+                            <img src="./assets/apex.svg" alt="Oracle Apex" class="icon" loading="lazy" />
                             <h3>Oracle Apex</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/mongodb.png" alt="MongoDB icon" class="icon" />
+                            <img src="./assets/mongodb.png" alt="MongoDB" class="icon" loading="lazy" />
                             <h3>MongoDB</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/firebase.png" alt="Firebase icon" class="icon" />
+                            <img src="./assets/firebase.png" alt="Firebase" class="icon" loading="lazy" />
                             <h3>Firebase</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:40%"></div></div>
                         </article>
                         <article>
-                            <img src="./assets/render.png" alt="Render icon" class="icon" />
+                            <img src="./assets/render.png" alt="Render" class="icon" loading="lazy" />
                             <h3>Render</h3>
                             <p>Beginner</p>
                             <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
@@ -188,6 +190,36 @@
         </section>
 
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8679;</button>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">John Almer</span>
+                <p>Aspiring IT Professional</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <img src="assets/Linkedin-Icon.png" alt="LinkedIn" loading="lazy" />
+                </a>
+                <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/github-logo.png" alt="GitHub" loading="lazy" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 John Almer Goco. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

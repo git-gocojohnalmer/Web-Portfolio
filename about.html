@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Almer Goco | About</title>
+    <meta name="description" content="Learn about John Almer Goco — 3rd-year BSIT student, developer, and aspiring IT professional at St. Dominic College of Asia.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About — John Almer Goco">
+    <meta property="og:description" content="3rd-year BSIT student passionate about software development, web technologies, and mobile apps.">
+    <meta property="og:image" content="assets/profilepic.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
@@ -25,7 +31,7 @@
         <nav id="hamburger-nav">
             <div class="logo">John Almer</div>
             <div class="hamburger-menu">
-                <div class="hamburger-icon" onclick="toggleMenu()">
+                <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -46,24 +52,24 @@
 
             <div class="section-container">
                 <div class="section__pic-container">
-                    <img src="./assets/profilepic.jpg" alt="John Almer Goco" class="about-pic" />
+                    <img src="./assets/profilepic.jpg" alt="John Almer Goco" class="about-pic" loading="lazy" />
                 </div>
 
                 <div class="about-details-container">
                     <div class="about-containers">
                         <div class="details-container">
-                            <img src="./assets/experience-badge.png" alt="Degree icon" class="icon" />
+                            <img src="./assets/experience-badge.png" alt="Degree icon" class="icon" loading="lazy" />
                             <h3>Year Level</h3>
                             <p>3rd Year<br>IT Student</p>
                         </div>
                         <div class="details-container">
-                            <img src="./assets/education-icon.png" alt="Education icon" class="icon" />
+                            <img src="./assets/education-icon.png" alt="Education icon" class="icon" loading="lazy" />
                             <h3>Education</h3>
                             <p>BSIT<br>St. Dominic College of Asia</p>
                         </div>
                     </div>
 
-                    <!-- Animated stats row -->
+                    <!-- Animated stats -->
                     <div class="about-stats">
                         <div class="stat-item">
                             <span class="stat-number" data-target="3">0</span>
@@ -85,13 +91,52 @@
                         <p>I'm a fast learner who thrives on challenges and enjoys turning ideas into functional, well-designed software. I'm actively looking for opportunities to grow, collaborate, and contribute to impactful projects.</p>
                     </div>
 
+                    <!-- Timeline -->
+                    <div class="timeline-section">
+                        <h3 class="timeline-heading">My Journey</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-year">2023</span>
+                                    <h4>Started BSIT at SDCA</h4>
+                                    <p>Enrolled at St. Dominic College of Asia. Began learning programming fundamentals — Java, C, HTML, and CSS.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-year">2024</span>
+                                    <h4>Web &amp; Backend Development</h4>
+                                    <p>Expanded into JavaScript, Node.js, Express.js, MongoDB, and Firebase. Built RESTful APIs and tested them with Postman.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-year">2024</span>
+                                    <h4>SDCanteen Mobile App</h4>
+                                    <p>Collaborated on a Firebase-powered canteen ordering app for SDCA students, featuring real-time tracking and digital payments.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-year">2025</span>
+                                    <h4>Mobile &amp; Portfolio Development</h4>
+                                    <p>Exploring Flutter &amp; Dart for cross-platform mobile apps. Built this personal portfolio with a custom design system.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="contact-info-lower-container">
                         <div class="contact-info-container">
-                            <img src="./assets/Linkedin-Icon.png" alt="LinkedIn" class="icon contact-icon" />
+                            <img src="./assets/Linkedin-Icon.png" alt="LinkedIn" class="icon contact-icon" loading="lazy" />
                             <p><a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener">LinkedIn</a></p>
                         </div>
                         <div class="contact-info-container">
-                            <img src="./assets/github-logo.png" alt="GitHub" class="icon contact-icon" />
+                            <img src="./assets/github-logo.png" alt="GitHub" class="icon contact-icon" loading="lazy" />
                             <p><a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener">GitHub</a></p>
                         </div>
                     </div>
@@ -101,6 +146,36 @@
         </section>
 
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8679;</button>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">John Almer</span>
+                <p>Aspiring IT Professional</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <img src="assets/Linkedin-Icon.png" alt="LinkedIn" loading="lazy" />
+                </a>
+                <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/github-logo.png" alt="GitHub" loading="lazy" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 John Almer Goco. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

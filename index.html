@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Almer Goco | Home</title>
+    <meta name="description" content="John Almer Goco — 3rd-year BSIT student at St. Dominic College of Asia. Aspiring IT professional skilled in JavaScript, Node.js, Flutter, Firebase, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="John Almer Goco | Portfolio">
+    <meta property="og:description" content="Aspiring IT professional skilled in web development, mobile apps, and backend systems.">
+    <meta property="og:image" content="assets/profilepic.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
@@ -26,7 +32,7 @@
         <nav id="hamburger-nav">
             <div class="logo">John Almer</div>
             <div class="hamburger-menu">
-                <div class="hamburger-icon" onclick="toggleMenu()">
+                <div class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -54,10 +60,10 @@
                     <a href="projects.html" class="btn btn-color-1">View Projects</a>
                 </div>
                 <div id="socials-container">
-                    <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener">
+                    <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
                         <img src="./assets/Linkedin-Icon.png" alt="LinkedIn" class="icon" />
                     </a>
-                    <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener">
+                    <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener" aria-label="GitHub profile">
                         <img src="./assets/github-logo.png" alt="GitHub" class="icon" />
                     </a>
                 </div>
@@ -65,6 +71,35 @@
         </section>
 
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8679;</button>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">John Almer</span>
+                <p>Aspiring IT Professional</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tech-stack.html">Tech Stack</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <img src="assets/Linkedin-Icon.png" alt="LinkedIn" loading="lazy" />
+                </a>
+                <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener" aria-label="GitHub">
+                    <img src="assets/github-logo.png" alt="GitHub" loading="lazy" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 John Almer Goco. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/particles.js"></script>

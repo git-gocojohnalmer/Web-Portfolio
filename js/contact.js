@@ -1,4 +1,9 @@
-/* Contact Form — validation, char counter, success state */
+/* Contact Form — validation, char counter, Formspree submission
+ *
+ * TO ACTIVATE: sign up at https://formspree.io, create a form,
+ * then paste your form ID below (the part after /f/).
+ */
+const FORMSPREE_ID = 'YOUR_FORM_ID'; // ← replace with your Formspree form ID
 
 const form = document.getElementById('contactForm');
 const successPanel = document.getElementById('formSuccess');
@@ -17,7 +22,7 @@ if (messageField && charCountEl) {
     });
 }
 
-/* Field validation helpers */
+/* Validation helpers */
 function setError(fieldId, errorId, message) {
     const field = document.getElementById(fieldId);
     const errEl = document.getElementById(errorId);
@@ -83,21 +88,52 @@ function validateForm() {
     return valid;
 }
 
+function showSuccess() {
+    form.style.display = 'none';
+    successPanel.classList.add('visible');
+    submitBtn.classList.remove('loading');
+    submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
+}
+
+function showError(msg) {
+    submitBtn.classList.remove('loading');
+    submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
+    const errEl = document.getElementById('messageError');
+    if (errEl) errEl.textContent = msg || 'Something went wrong. Please try again.';
+}
+
 /* Submit */
 if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
 
         submitBtn.classList.add('loading');
         submitBtn.querySelector('.btn-submit-text').textContent = 'Sending…';
 
-        /* Simulate async send (replace with real API call if needed) */
-        setTimeout(() => {
-            form.style.display = 'none';
-            successPanel.classList.add('visible');
-            submitBtn.classList.remove('loading');
-        }, 1200);
+        if (FORMSPREE_ID === 'YOUR_FORM_ID') {
+            /* No Formspree ID set — demo mode: show success after delay */
+            setTimeout(showSuccess, 1200);
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                showSuccess();
+            } else {
+                const data = await response.json();
+                const msg = data?.errors?.map(e => e.message).join(', ');
+                showError(msg);
+            }
+        } catch {
+            showError('Network error — please email me directly.');
+        }
     });
 
     /* Inline validation on blur */
@@ -108,21 +144,21 @@ if (form) {
             if (el.value.trim()) {
                 el.classList.add('valid');
                 el.classList.remove('error');
-                document.getElementById(id + 'Error').textContent = '';
+                const errEl = document.getElementById(id + 'Error');
+                if (errEl) errEl.textContent = '';
             }
         });
     });
 }
 
-/* Reset to form after success */
+/* Reset to form view after success */
 function resetForm() {
     form.reset();
     form.style.display = 'flex';
     successPanel.classList.remove('visible');
-    submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
     if (charCountEl) charCountEl.textContent = '0 / 500';
     document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => {
         el.classList.remove('valid', 'error');
     });
-    document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+    document.querySelectorAll('.form-error').forEach(el => { el.textContent = ''; });
 }

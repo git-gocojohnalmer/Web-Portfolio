@@ -1,5 +1,64 @@
 /* Project section Styles */
 
+/* ---- Override global article opacity rule for dynamically rendered cards ----
+   The global `article { opacity: 0 }` in style.css is for scroll-triggered
+   animations. Project cards are injected by JS so the IntersectionObserver
+   never sees them — we handle their own animation here instead. */
+article.projects__card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+article.projects__card:nth-child(2) { animation-delay: 0.12s; }
+article.projects__card:nth-child(3) { animation-delay: 0.24s; }
+article.projects__card:nth-child(4) { animation-delay: 0.36s; }
+article.projects__card:nth-child(5) { animation-delay: 0.48s; }
+article.projects__card:nth-child(6) { animation-delay: 0.60s; }
+
+/* Tech tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0 0.85rem;
+}
+
+.tech-tag {
+    background: rgba(74, 112, 144, 0.18);
+    color: var(--color-text-muted);
+    border: 1px solid rgba(74, 112, 144, 0.3);
+    border-radius: 2rem;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Project date & header meta */
+.project-date {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.project-header-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+}
+
+/* Empty state */
+.no-projects {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 3rem 1rem;
+    font-size: 1rem;
+    grid-column: 1 / -1;
+}
+
 /* Projects grid layout */
 .projects-grid {
     display: grid;
