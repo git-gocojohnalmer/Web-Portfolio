@@ -9,77 +9,98 @@
     <link rel="stylesheet" href="css/view.css">
 </head>
 <body>
-
-    <div id="particle-js"></div>
     <div class="main-content">
-    <nav id="desktop-nav">
-        <div class="logo">John Almer</div>
-        <div>
+
+        <nav id="desktop-nav">
+            <div class="logo">John Almer</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="tech-stack.html">Tech Stack</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">John Almer</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-                <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
-                <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-        
-            </div>
-        </div>
-    </nav>
-    
-    <section id="about">
-      <p class="section__text__p1">Get to know me More</p>
-      <h1 class="title">About Me!</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img 
-          src="./assets/profilepic.jpg" 
-          alt="Profile Picture"
-          class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <img src="./assets/experience-badge.png" 
-                    alt="Experience icon"  
-                    class="icon"
-                    />
-                             <h3>Degree</h3>
-                        <p>3rd Year<br>IT</p>
+        </nav>
+
+        <nav id="hamburger-nav">
+            <div class="logo">John Almer</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                    <div class="details-container">
-                    <img src="./assets/education-icon.png" 
-                    alt="Education icon"
-                    class="icon"
-                    />
-                    <h3>Education</h3>
-                    <p>BSIT<br>at St. Dominic College of Asia</p>
+                <div class="menu-links">
+                    <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+                    <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
+                    <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
                 </div>
             </div>
-            <div class="text-container">
-                <p>Hello, I am John Almer Goco, a 3rd year IT student at St. Dominic College of Asia. I am passionate about technology and programming. I am currently learning Java, C, HTML, CSS, JavaScript, and recently the MongoDB and Flutter. I am eager to apply my skills in real-world projects and contribute to the tech community.</p>
-                <p>I am a quick learner and always open to new challenges. I enjoy working on projects that allow me to explore my creativity and problem-solving skills. I am excited to connect with like-minded individuals and collaborate on innovative ideas.</p>
-                </p>
-                <p>Feel free to reach out to me for any opportunities or collaborations!</p>
+        </nav>
+
+        <section id="about">
+            <p class="section__text__p1">Get to Know Me</p>
+            <h1 class="title">About Me</h1>
+
+            <div class="section-container">
+                <div class="section__pic-container">
+                    <img src="./assets/profilepic.jpg" alt="John Almer Goco" class="about-pic" />
+                </div>
+
+                <div class="about-details-container">
+                    <div class="about-containers">
+                        <div class="details-container">
+                            <img src="./assets/experience-badge.png" alt="Degree icon" class="icon" />
+                            <h3>Year Level</h3>
+                            <p>3rd Year<br>IT Student</p>
+                        </div>
+                        <div class="details-container">
+                            <img src="./assets/education-icon.png" alt="Education icon" class="icon" />
+                            <h3>Education</h3>
+                            <p>BSIT<br>St. Dominic College of Asia</p>
+                        </div>
+                    </div>
+
+                    <!-- Animated stats row -->
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-label">Years Studying</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="10">0</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-label">Projects Built</span>
+                        </div>
+                    </div>
+
+                    <div class="text-container">
+                        <p>I'm <strong>John Almer Goco</strong>, a 3rd-year Bachelor of Science in Information Technology student at St. Dominic College of Asia. I have a strong passion for software development and building practical solutions that make a real difference.</p>
+                        <p>My technical journey spans mobile development with Flutter and Dart, backend development with Node.js and Express, database management with MongoDB and Firebase, and building RESTful APIs tested with Postman. I'm also experienced with version control using Git and GitHub.</p>
+                        <p>I'm a fast learner who thrives on challenges and enjoys turning ideas into functional, well-designed software. I'm actively looking for opportunities to grow, collaborate, and contribute to impactful projects.</p>
+                    </div>
+
+                    <div class="contact-info-lower-container">
+                        <div class="contact-info-container">
+                            <img src="./assets/Linkedin-Icon.png" alt="LinkedIn" class="icon contact-icon" />
+                            <p><a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener">LinkedIn</a></p>
+                        </div>
+                        <div class="contact-info-container">
+                            <img src="./assets/github-logo.png" alt="GitHub" class="icon contact-icon" />
+                            <p><a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener">GitHub</a></p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-      </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        </section>
+
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/particles.js"></script>
 </body>
 </html>

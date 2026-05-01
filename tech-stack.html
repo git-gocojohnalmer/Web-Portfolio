@@ -10,153 +10,184 @@
     <link rel="stylesheet" href="css/tech-stack-styles.css">
 </head>
 <body>
-
-    <div id="particle-js"></div>
     <div class="main-content">
-    <nav id="desktop-nav">
-        <div class="logo">John Almer</div>
-        <div>
+
+        <nav id="desktop-nav">
+            <div class="logo">John Almer</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="tech-stack.html">Tech Stack</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">John Almer</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-                <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-                <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-            </div>
-        </div>
-    </nav>
-    
-    <section id="tech-stack">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Tech Stack</h1>
-        <div class="tech-stack-details-container">
-            <!-- Programming Languages Section -->
-            <div class="details-container">
-                <h2 class="section-subtitle">Programming Languages</h2>
-                <div class="article-container">
-                    <article>
-                        <img src="./assets/java.png" alt="Java icon" class="icon" />
-                        <h3>Java</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/c-1.svg" alt="C icon" class="icon" />
-                        <h3>C</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/cpp.svg" alt="C++ icon" class="icon" />
-                        <h3>C++</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/java-script.png" alt="JavaScript icon" class="icon" />
-                        <h3>JavaScript</h3>
-                        <p>New</p>
-                    </article>
+        </nav>
+
+        <nav id="hamburger-nav">
+            <div class="logo">John Almer</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                    <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+                    <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
+                    <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
                 </div>
             </div>
-            
-            <!-- Web Development Section -->
-            <div class="details-container">
-                <h2 class="section-subtitle">Web Development</h2>
-                <div class="article-container">
-                    <article>
-                        <img src="./assets/html.png" alt="HTML icon" class="icon" />
-                        <h3>HTML</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/css-3 (1).png" alt="CSS icon" class="icon" />
-                        <h3>CSS</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/flutter.png" alt="Flutter icon" class="icon" />
-                        <h3>Flutter</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/Dart.png" alt="Dart icon" class="icon" />
-                        <h3>Dart</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/postman.png" alt="Postman icon" class="icon" />
-                        <h3>Postman</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/nodejs.png" alt="Nodejs icon" class="icon" />
-                        <h3>Nodejs</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/expressjs.png" alt="Expressjs icon" class="icon" />
-                        <h3>Expressjs</h3>
-                        <p>New</p>
-                    </article>
-                </div>
+        </nav>
+
+        <section id="tech-stack">
+            <p class="section__text__p1">Explore My</p>
+            <h1 class="title">Tech Stack</h1>
+
+            <!-- Filter buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="language">Languages</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="tools">Tools &amp; DB</button>
             </div>
-            
-            <!-- Tools & Database Section -->
-            <div class="details-container">
-                <h2 class="section-subtitle">Tools & Database</h2>
-                <div class="article-container">
-                    <article>
-                        <img src="./assets/git.svg" alt="Git icon" class="icon" />
-                        <h3>Git</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/github.svg" alt="GitHub icon" class="icon" />
-                        <h3>GitHub</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/oracle.svg" alt="Oracle SQL icon" class="icon" />
-                        <h3>Oracle SQL</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <img src="./assets/apex.svg" alt="Apex icon" class="icon" />
-                        <h3>Apex</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <image src="./assets/mongodb.png" alt="MongoDB icon" class="icon" />
-                        <h3>MongoDB</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <image src="./assets/firebase.png" alt="Firebase icon" class="icon" />
-                        <h3>Firebase</h3>
-                        <p>New</p>
-                    </article>
-                    <article>
-                        <image src="./assets/render.png" alt="Render icon" class="icon" />
-                        <h3>Render</h3>
-                        <p>New</p>
-                    </article>
+
+            <div class="tech-stack-details-container">
+
+                <!-- Programming Languages -->
+                <div class="details-container" data-category="language">
+                    <h2 class="section-subtitle">Programming Languages</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/java.png" alt="Java icon" class="icon" />
+                            <h3>Java</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/c-1.svg" alt="C icon" class="icon" />
+                            <h3>C</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/cpp.svg" alt="C++ icon" class="icon" />
+                            <h3>C++</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:25%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/java-script.png" alt="JavaScript icon" class="icon" />
+                            <h3>JavaScript</h3>
+                            <p>Intermediate</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:55%"></div></div>
+                        </article>
+                    </div>
                 </div>
+
+                <!-- Web Development -->
+                <div class="details-container" data-category="web">
+                    <h2 class="section-subtitle">Web Development</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/html.png" alt="HTML icon" class="icon" />
+                            <h3>HTML</h3>
+                            <p>Intermediate</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:60%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/css-3 (1).png" alt="CSS icon" class="icon" />
+                            <h3>CSS</h3>
+                            <p>Intermediate</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:55%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/flutter.png" alt="Flutter icon" class="icon" />
+                            <h3>Flutter</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/Dart.png" alt="Dart icon" class="icon" />
+                            <h3>Dart</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/nodejs.png" alt="Node.js icon" class="icon" />
+                            <h3>Node.js</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:40%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/expressjs.png" alt="Express.js icon" class="icon" />
+                            <h3>Express.js</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/postman.png" alt="Postman icon" class="icon" />
+                            <h3>Postman</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:40%"></div></div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Tools & Database -->
+                <div class="details-container" data-category="tools">
+                    <h2 class="section-subtitle">Tools &amp; Database</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/git.svg" alt="Git icon" class="icon" />
+                            <h3>Git</h3>
+                            <p>Intermediate</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:50%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/github.svg" alt="GitHub icon" class="icon" />
+                            <h3>GitHub</h3>
+                            <p>Intermediate</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:55%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/oracle.svg" alt="Oracle SQL icon" class="icon" />
+                            <h3>Oracle SQL</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/apex.svg" alt="Oracle Apex icon" class="icon" />
+                            <h3>Oracle Apex</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/mongodb.png" alt="MongoDB icon" class="icon" />
+                            <h3>MongoDB</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:35%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/firebase.png" alt="Firebase icon" class="icon" />
+                            <h3>Firebase</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:40%"></div></div>
+                        </article>
+                        <article>
+                            <img src="./assets/render.png" alt="Render icon" class="icon" />
+                            <h3>Render</h3>
+                            <p>Beginner</p>
+                            <div class="skill-level"><div class="skill-progress" style="width:30%"></div></div>
+                        </article>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        </section>
+
+    </div>
     <script src="js/script.js"></script>
-    <script src="js/particles.js"></script>
 </body>
 </html>

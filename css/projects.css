@@ -1,6 +1,64 @@
 /* Project section Styles */
 
-    /* Add to css/projects.css */
+/* Projects grid layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 1rem;
+}
+
+.projects__desc-body {
+    margin-top: 0.5rem;
+    line-height: 1.7;
+    color: var(--color-text-muted) !important;
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.projects__image--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2.5rem 2rem;
+    border: 2px dashed rgba(74, 112, 144, 0.4);
+    border-radius: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.project-placeholder span {
+    font-size: 3rem;
+}
+
+.project-placeholder p {
+    color: var(--color-text-muted) !important;
+    font-size: 0.9rem;
+}
+
+/* Dark background for projects page only */
+.main-content {
+    background-color: var(--color-bg-dark);
+}
+
+.main-content p {
+    color: var(--color-text-muted);
+}
+
 .carousel-thumbnails {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -15,11 +73,10 @@
 
 .carousel-thumb-size {
     font-size: 0.95rem;
-    color: #000000;
+    color: var(--color-text-muted);
     margin-top: 4px;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .carousel-thumb {
@@ -29,15 +86,17 @@
     object-fit: contain;
     cursor: pointer;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    background: var(--color-bg-mid);
     padding: 8px;
     display: block;
+    border: 2px solid transparent;
 }
 .carousel-thumb:hover {
     transform: scale(1.07);
-    box-shadow: 0 0 18px #aaa;
+    box-shadow: 0 0 18px rgba(74, 112, 144, 0.5);
+    border-color: var(--color-accent);
     z-index: 2;
 }
 .image-modal {
@@ -46,7 +105,7 @@
     z-index: 9999;
     left: 0; top: 0;
     width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.85);
+    background: rgba(28, 51, 71, 0.95);
     justify-content: center;
     align-items: center;
     overflow: auto;
@@ -59,15 +118,16 @@
     opacity: 1;
 }
 .image-modal .modal-content {
-     display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     max-width: 90vw;
     max-height: 80vh;
-    background: #fff;
+    background: var(--color-bg-mid);
     border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(74, 112, 144, 0.4);
 }
 
 .image-modal img {
@@ -102,8 +162,8 @@
 }
 
 .close-modal:hover {
-    color: #ff8080;
-    background: rgba(0,0,0,0.6);
+    color: var(--color-accent);
+    background: rgba(28, 51, 71, 0.8);
 }
 
 
@@ -114,6 +174,18 @@
     align-items: center;
     text-align: center;
     position: relative;
+    color: var(--color-text-light);
+}
+
+.projects__section .title {
+    background: linear-gradient(to right, var(--color-text-light), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.projects__section .section__text__p1 {
+    color: var(--color-text-muted);
 }
 
 .projects .section__text__p1 {
@@ -123,10 +195,12 @@
 
 .projects__card {
     position: relative;
-    background-color: #c5c5ae;
+    background-color: var(--color-bg-mid);
     padding: 1.5rem;
-    border-radius: 3rem;
+    border-radius: var(--radius-card);
     overflow: hidden;
+    border: 1px solid rgba(74, 112, 144, 0.3);
+    color: var(--color-text-light);
 }
 
 .projects__number,
@@ -147,10 +221,14 @@
     font-size: 50px;
 }
 
+.projects__number h1 {
+    color: var(--color-text-muted);
+}
+
 .projects__number h3 {
-    font-weight: 30px;
+    font-weight: 500;
     font-size: 30px;
-    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-text-muted);
 }
 
 .projects__data {
@@ -159,20 +237,20 @@
 
 .projects__title {
     margin-bottom: 1rem;
-    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-text-light);
 }
 
 .projects__subtitle {
-    font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     margin-bottom: .5rem;
     font-weight: 600;
+    color: var(--color-accent);
 }
 
 .projects__description {
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
+    font-weight: 500;
+    color: var(--color-text-muted);
 }
 
 .projects__image {
@@ -219,9 +297,14 @@
 
 .projects__button-link {
     font-size: 20px;
-    color: #000;
+    color: var(--color-text-light);
     text-decoration: none;
     font-weight: 600;
+    transition: color var(--transition);
+}
+
+.projects__button-link:hover {
+    color: var(--color-accent);
 }
 
 .projects__button .icon {
@@ -241,19 +324,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3rem;
+    background-color: rgba(74, 112, 144, 0.04);
+    border-radius: var(--radius-card);
     z-index: 0;
     pointer-events: none;
 }
 
 .projects__card:hover::before {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(74, 112, 144, 0.1);
 }
 
 .projects__card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(175, 153, 153, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(28, 51, 71, 0.4);
+    border-color: var(--color-accent);
     transition: all 0.3s ease;
 }
 
@@ -430,7 +514,7 @@
 .carousel-thumb,
 .image-modal .modal-content {
     object-fit: contain;
-    background: #fff;
+    background: var(--color-bg-mid);
 }
 
 .carousel-thumbnails > img {

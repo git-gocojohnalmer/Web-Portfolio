@@ -8,88 +8,118 @@
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
     <link rel="stylesheet" href="css/projects.css">
-
 </head>
 <body>
-
-    <div id="particle-js"></div>
     <div class="main-content">
-    <nav id="desktop-nav">
-        <div class="logo">John Almer</div>
-        <div>
+
+        <nav id="desktop-nav">
+            <div class="logo">John Almer</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="tech-stack.html">Tech Stack</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">John Almer</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+        </nav>
+
+        <nav id="hamburger-nav">
+            <div class="logo">John Almer</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                    <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+                    <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
+                    <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+                </div>
             </div>
-            <div class="menu-links">
-                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-                <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-                <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="projects__section" id="projects">
-        <p class="section__text__p1">Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="tech-stack-details-container">
-            <div class="projects-container container grid">
+        </nav>
+
+        <section class="projects__section" id="projects">
+            <p class="section__text__p1">What I've Built</p>
+            <h1 class="title">Projects</h1>
+
+            <div class="projects-grid">
+
+                <!-- Project 01: SDCanteen -->
                 <article class="projects__card">
                     <div class="projects__number">
                         <h1>01</h1>
-                        <h3>
-                            <div class="projects__button">
-                                <img 
-                                    src="./assets/viewgithub.png" 
-                                    alt="View icon"
-                                    class="icon contact-icon"/>
-                                <a href="https://github.com/jereeza-mae-mayuga/SDCAnteen" class="projects__button-link">View Project</a>
-                            </div>
-                        </h3>
+                        <div class="projects__button">
+                            <img src="./assets/viewgithub.png" alt="GitHub" class="icon" />
+                            <a href="https://github.com/jereeza-mae-mayuga/SDCAnteen" target="_blank" rel="noopener" class="projects__button-link">View on GitHub</a>
+                        </div>
                     </div>
                     <div class="projects__data">
-                        <h1 class="projects__title">SDCanteen <br> Mobile App</h1>
-                        <p class="projects__subtitle">Technology Used</p>
-                        <p class="projects__description">Github, Android Studio, Firebase</p>
-                        <p class="projects__description">SDCanteen is a mobile app designed to streamline the food ordering process for students.</p>
+                        <h2 class="projects__title">SDCanteen Mobile App</h2>
+                        <p class="projects__subtitle">Technologies Used</p>
+                        <p class="projects__description">Firebase &bull; Android Studio &bull; GitHub</p>
+                        <p class="projects__description projects__desc-body">A mobile app designed to streamline the food ordering process for students at St. Dominic College of Asia. Features real-time order tracking, receipt generation, and a payment dashboard.</p>
                     </div>
                     <div class="projects__image">
                         <div class="carousel-thumbnails">
-                            <img src="assets/projectpic.jpg" alt="Log in Interface" class="carousel-thumb" tabindex="0">
-                            <span class="carousel-thumb-size">Log in Interface</span>
-                            <img src="assets/image2.jpg" alt="Receipt" class="carousel-thumb" tabindex="0">
-                            <span class="carousel-thumb-size">Receipt</span>
-                            <img src="assets/image3.jpg" alt="Payments" class="carousel-thumb" tabindex="0">
-                            <span class="carousel-thumb-size">Payments</span>
-                            <img src="assets/image4.jpg" alt="Orders Log" class="carousel-thumb" tabindex="0">
-                            <span class="carousel-thumb-size">Orders Log</span>
+                            <div class="carousel-item">
+                                <img src="assets/projectpic.jpg" alt="Log in Interface" class="carousel-thumb" tabindex="0" />
+                                <span class="carousel-thumb-size">Log In</span>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/image2.jpg" alt="Receipt" class="carousel-thumb" tabindex="0" />
+                                <span class="carousel-thumb-size">Receipt</span>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/image3.jpg" alt="Payments" class="carousel-thumb" tabindex="0" />
+                                <span class="carousel-thumb-size">Payments</span>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/image4.jpg" alt="Orders Log" class="carousel-thumb" tabindex="0" />
+                                <span class="carousel-thumb-size">Orders</span>
+                            </div>
                         </div>
                     </div>
                 </article>
+
+                <!-- Project 02: Portfolio Website -->
+                <article class="projects__card">
+                    <div class="projects__number">
+                        <h1>02</h1>
+                        <div class="projects__button">
+                            <img src="./assets/viewgithub.png" alt="GitHub" class="icon" />
+                            <a href="https://github.com/git-gocojohnalmer/Web-Portfolio" target="_blank" rel="noopener" class="projects__button-link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="projects__data">
+                        <h2 class="projects__title">Personal Portfolio Website</h2>
+                        <p class="projects__subtitle">Technologies Used</p>
+                        <p class="projects__description">HTML &bull; CSS &bull; JavaScript &bull; Particles.js</p>
+                        <p class="projects__description projects__desc-body">A responsive personal portfolio website showcasing my skills, projects, and background. Built with vanilla HTML, CSS, and JavaScript — no frameworks — with a custom navy color system and interactive features.</p>
+                    </div>
+                    <div class="projects__image projects__image--placeholder">
+                        <div class="project-placeholder">
+                            <span>&#128196;</span>
+                            <p>This site</p>
+                        </div>
+                    </div>
+                </article>
+
             </div>
-        </div>
-    </section>
-    <!-- Move modal here, outside main content for proper overlay -->
+        </section>
+
+    </div>
+
     <div class="image-modal" id="imageModal" aria-modal="true" role="dialog" tabindex="-1">
-        <span class="close-modal" id="closeModal" aria-label="Close modal" tabindex="0">&times;</span>
+        <span class="close-modal" id="closeModal" aria-label="Close image" tabindex="0">&times;</span>
         <div class="modal-content" id="modalContent">
             <img id="modalImg" src="" alt="" />
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script src="js/script.js"></script>
-    <script src="js/particles.js"></script>
     <script src="js/projects.js"></script>
 </body>
 </html>

@@ -7,75 +7,67 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/view.css">
-    <link rel="stylesheet" href="css/carousel.css">
 </head>
 <body>
-
     <div id="particle-js"></div>
     <div class="main-content">
-    <nav id="desktop-nav">
-        <div class="logo">John Almer</div>
-        <div>
+
+        <nav id="desktop-nav">
+            <div class="logo">John Almer</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="tech-stack.html">Tech Stack</a></li>
-                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">John Almer</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
-                <li><a href="about.html" onclick="toggleMenu()">About</a></li>
-                <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
-                 <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-            </div>
-        </div>
-    </nav>
-    <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/profilepic.jpg" alt="John Almer Goco Profile Picture"
-            class="profile-pic"
-            />
-        </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I am</p>
-            <h1 class="title">John Almer Goco</h1>
-            <p class="section__text__p2">Aspiring IT Professional</p>
-            
-                <div class="contact-info-upper-container">
-                    <div class="contact-info-container">
-                        <img 
-                        src="./assets/Linkedin-Icon.png" 
-                        alt="LinkedIn icon"
-                        class="icon contact-icon"/>
-                        <p><a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/">LinkedIn</a>
-                        </p>
-                        <img 
-                        src="./assets/github-logo.png" 
-                        alt="My Github" 
-                        class="icon">
-                        <p><a href="https://www.github.com/git-gocojohnalmer">Github</a>
-                        </p>
-                    </div>
-                </div>      
-            </div>
-            </div>
-        </div>
+        </nav>
 
+        <nav id="hamburger-nav">
+            <div class="logo">John Almer</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                    <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                    <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+                    <li><a href="tech-stack.html" onclick="toggleMenu()">Tech Stack</a></li>
+                    <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+                </div>
+            </div>
+        </nav>
 
+        <section id="profile">
+            <div class="section__pic-container">
+                <img src="./assets/profilepic.jpg" alt="John Almer Goco Profile Picture" class="profile-pic" />
+            </div>
+            <div class="section__text">
+                <p class="section__text__p1">Hello, I am</p>
+                <h1 class="title">John Almer Goco</h1>
+                <p class="section__text__p2" id="typewriter-text"></p>
+                <div class="btn-container">
+                    <a href="contact.html" class="btn btn-color-2">Contact Me</a>
+                    <a href="projects.html" class="btn btn-color-1">View Projects</a>
+                </div>
+                <div id="socials-container">
+                    <a href="https://www.linkedin.com/in/john-almer-goco-303b202a8/" target="_blank" rel="noopener">
+                        <img src="./assets/Linkedin-Icon.png" alt="LinkedIn" class="icon" />
+                    </a>
+                    <a href="https://www.github.com/git-gocojohnalmer" target="_blank" rel="noopener">
+                        <img src="./assets/github-logo.png" alt="GitHub" class="icon" />
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/particles.js"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
