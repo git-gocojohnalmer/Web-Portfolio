@@ -1,5 +1,6 @@
 /* Particles JS Configuration */
 document.addEventListener('DOMContentLoaded', function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     particlesJS('particle-js', {
         "particles": {
             "number": {

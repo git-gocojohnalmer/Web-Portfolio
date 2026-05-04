@@ -7,6 +7,7 @@ function toggleMenu() {
     const icon = document.querySelector('.hamburger-icon');
     menu.classList.toggle('open');
     icon.classList.toggle('open');
+    icon.setAttribute('aria-expanded', menu.classList.contains('open'));
 }
 
 /* =============================================
@@ -190,6 +191,24 @@ function initPageTransitions() {
 }
 
 /* =============================================
+   HAMBURGER OUTSIDE CLICK
+   ============================================= */
+
+function initHamburger() {
+    document.addEventListener('click', e => {
+        const nav  = document.getElementById('hamburger-nav');
+        const menu = document.querySelector('.menu-links');
+        const icon = document.querySelector('.hamburger-icon');
+        if (!nav || !menu || !menu.classList.contains('open')) return;
+        if (!nav.contains(e.target)) {
+            menu.classList.remove('open');
+            icon.classList.remove('open');
+            icon.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+/* =============================================
    NAV SCROLL SHADOW
    ============================================= */
 
@@ -221,4 +240,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavShadow();
     initBackToTop();
     initPageTransitions();
+    initHamburger();
 });

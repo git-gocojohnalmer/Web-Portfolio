@@ -405,7 +405,7 @@ section {
 }
 
 .profile-pic {
-    width: 96%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -588,6 +588,7 @@ section {
 
 .about-pic {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
@@ -627,10 +628,14 @@ section {
     height: 80%;
 }
 
+.text-container p {
+    max-width: 65ch;
+}
+
 #about .section__pic-container {
     height: 350px;
     margin: 0.5rem;
-    padding: 0.5rem;
+    padding: 0;
     box-shadow: 0 8px 30px rgba(28, 51, 71, 0.25);
 }
 
@@ -671,6 +676,10 @@ section {
     gap: 1rem;
     margin: 1.5rem 0;
     justify-content: center;
+    background: rgba(28, 51, 71, 0.06);
+    border: 1px solid rgba(74, 112, 144, 0.2);
+    border-radius: var(--radius-card);
+    padding: 0.75rem;
 }
 
 .stat-item {
@@ -741,6 +750,7 @@ section {
 
 .active-link::after {
     width: 100% !important;
+    background-color: var(--color-text-light) !important;
 }
 
 /* =============================================
@@ -902,6 +912,39 @@ body.page-exit {
     font-size: 0.8rem;
     color: var(--color-text-muted);
     margin: 0;
+}
+
+/* =============================================
+   PREFERS REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .section__pic-container {
+        animation: none;
+    }
+
+    body {
+        animation: none;
+    }
+
+    .section__text__p1,
+    .title,
+    .section__text__p2,
+    .btn-container,
+    #socials-container {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .details-container,
+    article,
+    .section__text,
+    .btn-container {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* =============================================
